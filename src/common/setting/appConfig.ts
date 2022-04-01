@@ -19,10 +19,14 @@ export class AppConfig {
     if (env.DB_PASSWD) {
       AppConfig.postgresConnection.password = env.DB_PASSWD;
     }
+
+    AppConfig.typeOrmOption4ParachainBalanceDB = {
+      ...this.postgresConnection,
+      database: 'prod-xxx-balance',
+    };
     if (env.DB_NAME) {
       AppConfig.typeOrmOption4ParachainBalanceDB.database = env.DB_NAME;
     }
-
 
     if (env.PARACHAIN_NAME) {
       AppConfig.ParachainName = env.PARACHAIN_NAME;
@@ -30,6 +34,8 @@ export class AppConfig {
     if (env.PARACHAIN_ENDPOINT) {
       AppConfig.ParachainEndpoint = env.PARACHAIN_ENDPOINT;
     }
+
+
     console.log(AppConfig);
   }
 
